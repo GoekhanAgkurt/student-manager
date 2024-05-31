@@ -3,7 +3,7 @@ import GroupList from "@/components/groups/groupList";
 import CreateStudent from "@/components/students/createStudent";
 import StudentList from "@/components/students/studentsList";
 
-export default function HomePage({ students, onAddStudent, onDeleteStudent, onEditStudent, groups, onAddGroup }) {
+export default function HomePage({ students, onAddStudent, onDeleteStudent, onEditStudent, groups, onAddGroup, onEditGroup, onDeleteGroup }) {
   return (
     <div>
       <h1>Hello from Next.js</h1>
@@ -18,7 +18,7 @@ export default function HomePage({ students, onAddStudent, onDeleteStudent, onEd
       <div style={{ width: "97%", margin: "auto", display: "flex", margin: " 0 auto" }}>
         <CreateGroup onAddGroup={onAddGroup} />
       </div>
-      <GroupList groups={groups} />
+      <GroupList groups={groups} onEditGroup={onEditGroup} onDeleteGroup={onDeleteGroup} />
 
 
 
