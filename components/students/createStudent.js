@@ -14,7 +14,7 @@ export default function CreateStudent({ onAddStudent, }) {
         const data = Object.fromEntries(formData);
 
         const newStudent = {
-            id: uuidv4,
+            id: uuidv4(),
             name: data.name,
             secondName: data.secondName,
             birthday: data.birthday,

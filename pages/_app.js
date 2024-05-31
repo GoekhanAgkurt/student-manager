@@ -10,11 +10,15 @@ export default function App({ Component, pageProps }) {
     setStudents([...students, newStudent])
   }
 
+  function handleDeleteStudent(id) {
+    setStudents(students.filter((student) => student.id !== id))
+  }
+
 
   return (
     <>
       <GlobalStyle />
-      <Component {...pageProps} students={students} onAddStudent={handleAddStudent} />
+      <Component {...pageProps} students={students} onAddStudent={handleAddStudent} onDeleteStudent={handleDeleteStudent} />
     </>
   );
 }

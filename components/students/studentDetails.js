@@ -1,9 +1,14 @@
 import { useState } from "react"
 
-export default function StudentDetails({ student, onClose }) {
+export default function StudentDetails({ student, onClose, onDeleteStudent }) {
 
     const [isOpen, setIsOpen] = useState(false);
 
+
+    const handleDelete = () => {
+        onDeleteStudent(student.id);
+        onClose();
+    }
 
 
     return (
@@ -53,6 +58,8 @@ export default function StudentDetails({ student, onClose }) {
 
                     <div>
                         <button type="button" onClick={onClose}>Cancel</button>
+                        <button type="button" onClick={handleDelete}>Delete</button>
+
                     </div>
 
                 </form>
