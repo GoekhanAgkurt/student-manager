@@ -1,4 +1,13 @@
+import { useState } from "react"
+import StudentDetails from "./studentDetails";
+
 export default function StudentItem({ student }) {
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    function onClose() {
+        setIsOpen(!isOpen)
+    }
 
     return (
         <>
@@ -10,9 +19,15 @@ export default function StudentItem({ student }) {
                 <th>   {student.group}</th>
                 <th>   {student.sex}</th>
                 <th>{student.email}</th>
-                <th>   {student.phone}</th>
-                <th>details</th>
+                <th> {student.phone}</th>
+                <th><button onClick={() => setIsOpen(!isOpen)}>details</button></th>
             </tr>
+
+            {isOpen && (
+                <StudentDetails student={student} onClose={onClose} />
+            )}
+
+
         </>
     )
 }
