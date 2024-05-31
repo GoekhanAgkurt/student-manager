@@ -2,12 +2,14 @@ import GlobalStyle from "../styles";
 
 
 import useLocalStorageState from "use-local-storage-state";
-import { initialStudents, initialGroups } from "@/lib/data";
+import { initialStudents, initialGroups, initialTeachers } from "@/lib/data";
 
 export default function App({ Component, pageProps }) {
 
   const [students, setStudents] = useLocalStorageState("students", { defaultValue: initialStudents });
   const [groups, setGroups] = useLocalStorageState("groups", { defaultValue: initialGroups });
+  const [teachers, setTeachers] = useLocalStorageState("teachers", { defaultValue: initialTeachers });
+
 
 
   function handleAddStudent(newStudent) {
@@ -39,6 +41,11 @@ export default function App({ Component, pageProps }) {
     ))))
   }
 
+  function handleAddTeacher(newTeacher) {
+    setTeachers([...teachers, newTeacher])
+
+  }
+
 
   return (
     <>
@@ -53,6 +60,10 @@ export default function App({ Component, pageProps }) {
         onAddGroup={handleAddGroup}
         onEditGroup={handleEditGroup}
         onDeleteGroup={handleDeleteGroup}
+
+
+        teachers={teachers}
+        onAddTeacher={handleAddTeacher}
       />
     </>
   );
