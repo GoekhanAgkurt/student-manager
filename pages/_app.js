@@ -28,6 +28,17 @@ export default function App({ Component, pageProps }) {
     setGroups([...groups, newGroup])
   }
 
+  function handleDeleteGroup(id) {
+    setGroups((groups.filter((group) => (group.id !== id)
+    )))
+  }
+
+  function handleEditGroup(edidetGroup) {
+    setGroups((groups.map((group) => (
+      group.id === edidetGroup.id ? edidetGroup : group
+    ))))
+  }
+
 
   return (
     <>
@@ -40,6 +51,8 @@ export default function App({ Component, pageProps }) {
 
         groups={groups}
         onAddGroup={handleAddGroup}
+        onEditGroup={handleEditGroup}
+        onDeleteGroup={handleDeleteGroup}
       />
     </>
   );

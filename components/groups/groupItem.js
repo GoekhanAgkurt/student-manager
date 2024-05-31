@@ -1,6 +1,13 @@
+import { useState } from "react";
+import DetailsGroup from "./groupDetails";
 
+export default function GroupItem({ group, groups, onEditGroup, onDeleteGroup }) {
 
-export default function GroupItem({ group }) {
+    const [detailIsOpen, setDetailIsOpen] = useState(false);
+
+    const closeDetails = () => {
+        setDetailIsOpen(false);
+    }
 
     return (
         <>
@@ -10,8 +17,13 @@ export default function GroupItem({ group }) {
                 <td>  {group.id}</td>
                 <td>   {group.teacherName}</td>
                 <td>   </td>
-                <td><button>details</button></td>
+                <td><button className="detailsButton" onClick={() => setDetailIsOpen(!detailIsOpen)}>details</button></td>
             </tr>
+
+            {detailIsOpen && (
+                <DetailsGroup group={group} groups={groups} onEditGroup={onEditGroup} onClose={closeDetails} onDeleteGroup={onDeleteGroup} />
+            )
+            }
 
         </>
     );
