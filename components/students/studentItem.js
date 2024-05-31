@@ -12,19 +12,24 @@ export default function StudentItem({ student, onDeleteStudent, onEditStudent })
     return (
         <>
             <tr>
-                <th> {student.name}</th>
-                <th>  {student.secondName}</th>
-                <th>  {student.id}</th>
-                <th>   {student.birthday}</th>
-                <th>   {student.group}</th>
-                <th>   {student.sex}</th>
-                <th>{student.email}</th>
-                <th> {student.phone}</th>
-                <th><button onClick={() => setIsOpen(!isOpen)}>details</button></th>
+                <td> {student.name}</td>
+                <td> {student.secondName}</td>
+                <td> {student.id}</td>
+                <td> {student.birthday}</td>
+                <td> {student.group}</td>
+                <td> {student.sex}</td>
+                <td>{student.email}</td>
+                <td> {student.phone}</td>
+                <td><button className="detailsButton" onClick={() => setIsOpen(!isOpen)}>details</button></td>
             </tr>
 
             {isOpen && (
-                <StudentDetails student={student} onClose={onClose} onDeleteStudent={onDeleteStudent} onEditStudent={onEditStudent} />
+                <StudentDetails
+                    student={student}
+                    onClose={onClose}
+                    onDeleteStudent={onDeleteStudent}
+                    onEditStudent={onEditStudent}
+                />
             )}
 
 

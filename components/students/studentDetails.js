@@ -1,5 +1,6 @@
 import { useState } from "react"
 
+
 export default function StudentDetails({ student, onClose, onDeleteStudent, onEditStudent }) {
 
     const [isOpen, setIsOpen] = useState(false);
@@ -25,139 +26,130 @@ export default function StudentDetails({ student, onClose, onDeleteStudent, onEd
             group: data.group,
             sex: data.sex,
             email: data.email,
-            parentNumber: data.parentNumber,
+            phone: data.phone,
         }
-
         onEditStudent(editedStudent);
         setIsEdit(false)
     }
 
 
-
-
     return (
-        <div>
+        <div className="modalWindow">
 
             {!isEdit ? (
-                <div>
-                    <span onClick={onClose}>✖️</span>
-                    <form>
+                <div className="modalLeft" >
+                    <span className="closeIcon" onClick={onClose}>✖️</span>
 
-                        <h2>Please fill the form</h2>
+                    <h2>Please fill the form</h2>
 
-                        <section>
-                            <div>
-                                <label>Name</label>
-                                <p>{student.name}</p>
-                            </div>
-
-                            <div>
-                                <label>Second Name</label>
-                                <p>{student.secondName}</p>
-                            </div>
-
-                            <div>
-                                <label>sex</label>
-                                <p>{student.sex}</p>
-                            </div>
-
-                            <div>
-                                <label>Birthday</label>
-                                <p>{student.birthday}</p>
-                            </div>
-
-                            <div>
-                                <label>Group</label>
-                                <p>{student.group}</p>
-                            </div>
-
-                            <div>
-                                <label >E-Mail</label>
-                                <p>{student.email}</p>
-                            </div>
-
-                            <div>
-                                <label>Phone</label>
-                                <p>{student.email}</p>
-                            </div>
-                        </section>
-
-                        <div>
-                            <button type="button" onClick={() => setIsEdit(!isEdit)}>Edit</button>
-                            <button type="button" onClick={handleDelete}>Delete</button>
-
+                    <section className="formWrapper">
+                        <div className="formBox">
+                            <label>Name</label>
+                            <p>{student.name}</p>
                         </div>
 
-                    </form>
-                    <div onClick={() => setIsOpen(!isOpen)}>
+                        <div className="formBox">
+                            <label>Second Name</label>
+                            <p>{student.secondName}</p>
+                        </div>
+
+                        <div className="formBox">
+                            <label>sex</label>
+                            <p>{student.sex}</p>
+                        </div>
+
+                        <div className="formBox">
+                            <label>Birthday</label>
+                            <p>{student.birthday}</p>
+                        </div>
+
+                        <div className="formBox">
+                            <label>Group</label>
+                            <p>{student.group}</p>
+                        </div>
+
+                        <div className="formBox">
+                            <label >E-Mail</label>
+                            <p>{student.email}</p>
+                        </div>
+
+                        <div className="formBox">
+                            <label>Phone</label>
+                            <p>{student.phone}</p>
+                        </div>
+                    </section>
+
+                    <div className="buttonBox">
+                        <button className="submitButton" type="button" onClick={() => setIsEdit(!isEdit)}>Edit</button>
+                        <button className="cancelButton" type="button" onClick={handleDelete}>Delete</button>
                     </div>
                 </div>
             ) : (
 
-                <div>
-                    <div>
-                        <span onClick={() => setIsOpen(!isOpen)}>✖️</span>
-                        <form onSubmit={editStudent}>
+                <div className="modalLeft">
+                    <span className="closeIcon" onClick={() => setIsOpen(!isOpen)}>✖️</span>
+                    <form onSubmit={editStudent}>
 
-                            <h2>Please fill the form</h2>
+                        <h2>Please fill the form</h2>
 
-                            <section>
-                                <div>
-                                    <label>Name</label>
-                                    <input defaultValue={student.name} name="name" autoComplete="of"></input>
-                                </div>
-
-                                <div>
-                                    <label>Second Name</label>
-                                    <input defaultValue={student.name} name="secondName" autoComplete="of"></input>
-                                </div>
-
-                                <div>
-                                    <label>sex</label>
-                                    <select name="sex" defaultValue={student.sex}>
-                                        <option value="masculine"> masculine</option>
-                                        <option value="feminine">feminine </option>
-                                    </select>
-                                </div>
-
-                                <div>
-                                    <label>Birthday</label>
-                                    <input type="date" placeholder="dd.mm.yyyy" name="birthday"></input>
-                                </div>
-
-                                <div>
-                                    <label>Group</label>
-                                    <select name="group">
-                                        <option value="">Select a group</option>
-                                        <option>JavaScript</option>
-                                        <option>Java</option>
-                                        <option>Python</option>
-                                    </select>
-
-                                </div>
-
-                                <div>
-                                    <label >E-Mail</label>
-                                    <input type="mail" defaultValue={student.birthday} name="email" autoComplete="of"></input>
-                                </div>
-
-                                <div>
-                                    <label>Phone</label>
-                                    <input type="phone" defaultValue={student.phone} name="phone" autoComplete="of"></input>
-                                </div>
-                            </section>
-
-                            <div>
-                                <button type="submit">Save Changes</button>
-                                <button type="button" onClick={() => setIsEdit(!isEdit)}>Cancel</button>
+                        <section className="formWrapper">
+                            <div className="formBox">
+                                <label>Name</label>
+                                <input defaultValue={student.name} name="name" autoComplete="of" />
                             </div>
 
-                        </form>
-                    </div>
-                    <div onClick={() => setIsOpen(!isOpen)}>
-                    </div>
+                            <div className="formBox">
+                                <label>Second Name</label>
+                                <input defaultValue={student.secondName} name="secondName" autoComplete="of" />
+                            </div>
+
+                            <div className="formBox">
+                                <label>sex</label>
+                                <select name="sex" defaultValue={student.sex}>
+                                    <option value="masculine"> masculine</option>
+                                    <option value="feminine">feminine </option>
+                                </select>
+                            </div>
+
+                            <div className="formBox">
+                                <label>Birthday</label>
+                                <input type="date" defaultValue={student.birthday} name="birthday" autoComplete="of" />
+                            </div>
+
+                            <div className="formBox">
+                                <label>Group</label>
+                                <select name="group">
+                                    <option value="">{student.group}</option>
+                                    <option>JavaScript</option>
+                                    <option>Java</option>
+                                    <option>Python</option>
+                                </select>
+
+                            </div>
+
+                            <div className="formBox">
+                                <label >E-Mail</label>
+                                <input type="mail" defaultValue={student.birthday} name="email" autoComplete="of" />
+                            </div>
+
+                            <div className="formBox">
+                                <label>Phone</label>
+                                <input type="phone" defaultValue={student.phone} name="phone" />
+
+                            </div>
+                        </section>
+
+                        <div className="buttonBox">
+                            <button type="submit" className="submitButton">Save Changes</button>
+                            <button type="button" className="cancelButton" onClick={() => setIsEdit(!isEdit)}>Cancel</button>
+                        </div>
+
+                    </form>
                 </div>
             )}
+
+            <div className="modalRight" onClick={() => setIsOpen(!isOpen)}>
+            </div>
 
         </div>
     )

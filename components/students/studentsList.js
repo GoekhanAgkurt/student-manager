@@ -18,7 +18,11 @@ export default function StudentList({ students, onDeleteStudent, onEditStudent }
             </thead>
             <tbody>
                 {students.map((student) => (
-                    <StudentItem key={student.id} student={student} onDeleteStudent={onDeleteStudent} onEditStudent={onEditStudent} />
+                    <StudentItem
+                        key={student.id}
+                        student={student}
+                        onDeleteStudent={onDeleteStudent}
+                        onEditStudent={onEditStudent} />
                 ))}
 
             </tbody>
