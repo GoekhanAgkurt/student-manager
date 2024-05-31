@@ -6,13 +6,15 @@ export default function App({ Component, pageProps }) {
 
   const [students, setStudents] = useLocalStorageState("students", { defaultValue: initialStudents });
 
-
+  function handleAddStudent(newStudent) {
+    setStudents([...students, newStudent])
+  }
 
 
   return (
     <>
       <GlobalStyle />
-      <Component {...pageProps} students={students} />
+      <Component {...pageProps} students={students} onAddStudent={handleAddStudent} />
     </>
   );
 }

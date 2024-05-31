@@ -18,7 +18,7 @@ export default function StudentList({ students }) {
             </thead>
             <tbody>
                 {students.map((student) => (
-                    <StudentItem student={student} />
+                    <StudentItem key={student.id} student={student} />
                 ))}
 
             </tbody>
