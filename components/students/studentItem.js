@@ -1,7 +1,7 @@
 import { useState } from "react"
 import StudentDetails from "./studentDetails";
 
-export default function StudentItem({ student }) {
+export default function StudentItem({ student, onDeleteStudent }) {
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -24,7 +24,7 @@ export default function StudentItem({ student }) {
             </tr>
 
             {isOpen && (
-                <StudentDetails student={student} onClose={onClose} />
+                <StudentDetails student={student} onClose={onClose} onDeleteStudent={onDeleteStudent} />
             )}
 
 

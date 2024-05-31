@@ -1,6 +1,6 @@
 import StudentItem from "./studentItem";
 
-export default function StudentList({ students }) {
+export default function StudentList({ students, onDeleteStudent }) {
     return (
         <table>
             <thead>
@@ -18,7 +18,7 @@ export default function StudentList({ students }) {
             </thead>
             <tbody>
                 {students.map((student) => (
-                    <StudentItem key={student.id} student={student} />
+                    <StudentItem key={student.id} student={student} onDeleteStudent={onDeleteStudent} />
                 ))}
 
             </tbody>
