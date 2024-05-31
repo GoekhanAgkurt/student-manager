@@ -2,7 +2,7 @@ import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
 
-export default function CreateStudent({ onAddStudent }) {
+export default function CreateStudent({ onAddStudent, }) {
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -24,7 +24,7 @@ export default function CreateStudent({ onAddStudent }) {
             phone: data.phone,
         }
         onAddStudent(newStudent);
-        setCreateIsOpen(false);
+        setIsOpen(false);
     }
 
     return (
