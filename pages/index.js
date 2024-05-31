@@ -6,8 +6,10 @@ export default function HomePage({ students, onAddStudent, onDeleteStudent, onEd
     <div>
       <h1>Hello from Next.js</h1>
 
-      <CreateStudent onAddStudent={onAddStudent} />
+      <div style={{ width: "97%", margin: "auto", display: "flex", margin: " 0 auto" }}>
 
+        <CreateStudent onAddStudent={onAddStudent} />
+      </div>
       <StudentList students={students} onDeleteStudent={onDeleteStudent} onEditStudent={onEditStudent} />
 
     </div>
