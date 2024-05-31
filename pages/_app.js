@@ -24,6 +24,10 @@ export default function App({ Component, pageProps }) {
     )))
   }
 
+  function handleAddGroup(newGroup) {
+    setGroups([...groups, newGroup])
+  }
+
 
   return (
     <>
@@ -35,6 +39,7 @@ export default function App({ Component, pageProps }) {
         onEditStudent={handleEditStudent}
 
         groups={groups}
+        onAddGroup={handleAddGroup}
       />
     </>
   );
