@@ -1,7 +1,8 @@
+import GroupList from "@/components/groups/groupList";
 import CreateStudent from "@/components/students/createStudent";
 import StudentList from "@/components/students/studentsList";
 
-export default function HomePage({ students, onAddStudent, onDeleteStudent, onEditStudent }) {
+export default function HomePage({ students, onAddStudent, onDeleteStudent, onEditStudent, groups }) {
   return (
     <div>
       <h1>Hello from Next.js</h1>
@@ -11,6 +12,8 @@ export default function HomePage({ students, onAddStudent, onDeleteStudent, onEd
         <CreateStudent onAddStudent={onAddStudent} />
       </div>
       <StudentList students={students} onDeleteStudent={onDeleteStudent} onEditStudent={onEditStudent} />
+
+      <GroupList groups={groups} />
 
     </div>
   );
