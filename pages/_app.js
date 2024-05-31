@@ -14,11 +14,17 @@ export default function App({ Component, pageProps }) {
     setStudents(students.filter((student) => student.id !== id))
   }
 
+  function handleEditStudent(editedStudent) {
+    setStudents(students.map((student) => (
+      student.id === editedStudent.id ? editedStudent : student
+    )))
+  }
+
 
   return (
     <>
       <GlobalStyle />
-      <Component {...pageProps} students={students} onAddStudent={handleAddStudent} onDeleteStudent={handleDeleteStudent} />
+      <Component {...pageProps} students={students} onAddStudent={handleAddStudent} onDeleteStudent={handleDeleteStudent} onEditStudent={handleEditStudent} />
     </>
   );
 }
