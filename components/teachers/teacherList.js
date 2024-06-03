@@ -1,6 +1,6 @@
 import TeacherItem from "./teacherItem";
 
-export default function TeacherList({ teachers, groups }) {
+export default function TeacherList({ teachers, groups, onDeleteTeacher }) {
     return (
         <table>
             <thead>
@@ -21,6 +21,7 @@ export default function TeacherList({ teachers, groups }) {
                         key={teacher.id}
                         teacher={teacher}
                         groups={groups}
+                        onDeleteTeacher={onDeleteTeacher}
                     />
                 ))}
             </tbody>

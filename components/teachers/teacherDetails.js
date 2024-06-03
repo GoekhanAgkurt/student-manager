@@ -1,10 +1,14 @@
 
 
-export default function TeacherDetails({ teacher, onClose, }) {
+export default function TeacherDetails({ teacher, onClose, onDeleteTeacher }) {
 
 
 
 
+    function handleDelete() {
+        onDeleteTeacher(teacher.id);
+        onClose();
+    }
 
 
 
@@ -47,7 +51,7 @@ export default function TeacherDetails({ teacher, onClose, }) {
 
                 <div className="buttonBox">
                     <button className="submitButton" type="button" >Edit</button>
-                    <button className="cancelButton" type="button" >Delete</button>
+                    <button className="cancelButton" type="button" onClick={() => handleDelete(teacher.id)} >Delete</button>
                 </div>
             </div>
 
