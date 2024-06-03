@@ -43,7 +43,10 @@ export default function App({ Component, pageProps }) {
 
   function handleAddTeacher(newTeacher) {
     setTeachers([...teachers, newTeacher])
+  }
 
+  function handleDeleteTeacher(id) {
+    setTeachers(teachers.filter((teacher) => teacher.id !== id))
   }
 
 
@@ -61,9 +64,9 @@ export default function App({ Component, pageProps }) {
         onEditGroup={handleEditGroup}
         onDeleteGroup={handleDeleteGroup}
 
-
         teachers={teachers}
         onAddTeacher={handleAddTeacher}
+        onDeleteTeacher={handleDeleteTeacher}
       />
     </>
   );
