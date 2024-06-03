@@ -1,6 +1,8 @@
 import TeacherItem from "./teacherItem";
 
-export default function TeacherList({ teachers, groups, onDeleteTeacher }) {
+export default function TeacherList({ teachers, groups, onDeleteTeacher, onEditTeacher }) {
+
+
     return (
         <table>
             <thead>
@@ -15,13 +17,14 @@ export default function TeacherList({ teachers, groups, onDeleteTeacher }) {
                 </tr>
             </thead>
             <tbody>
-
                 {teachers.map((teacher) => (
                     <TeacherItem
-                        key={teacher.id}
                         teacher={teacher}
+                        key={teacher.id}
+                        teachers={teachers}
                         groups={groups}
                         onDeleteTeacher={onDeleteTeacher}
+                        onEditTeacher={onEditTeacher}
                     />
                 ))}
             </tbody>

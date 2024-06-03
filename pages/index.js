@@ -5,7 +5,8 @@ import StudentList from "@/components/students/studentsList";
 import CreateTeacher from "@/components/teachers/createTeachers";
 import TeacherList from "@/components/teachers/teacherList";
 
-export default function HomePage({ students, onAddStudent, onDeleteStudent, onEditStudent, groups, onAddGroup, onEditGroup, onDeleteGroup, teachers, onAddTeacher, teacher, onDeleteTeacher }) {
+export default function HomePage({
+  students, onAddStudent, onDeleteStudent, onEditStudent, groups, onAddGroup, onEditGroup, onDeleteGroup, teachers, onAddTeacher, onDeleteTeacher, onEditTeacher }) {
   return (
     <div>
       <h1>Hello from Next.js</h1>
@@ -26,7 +27,7 @@ export default function HomePage({ students, onAddStudent, onDeleteStudent, onEd
       <div style={{ width: "97%", margin: "auto", display: "flex", margin: " 0 auto" }}>
         <CreateTeacher onAddTeacher={onAddTeacher} groups={groups} />
       </div>
-      <TeacherList teachers={teachers} teacher={teacher} onDeleteTeacher={onDeleteTeacher} />
+      <TeacherList teachers={teachers} onDeleteTeacher={onDeleteTeacher} onEditTeacher={onEditTeacher} />
 
     </div>
   );
