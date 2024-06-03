@@ -49,6 +49,12 @@ export default function App({ Component, pageProps }) {
     setTeachers(teachers.filter((teacher) => teacher.id !== id))
   }
 
+  function handleEditTeacher(editedTeacher) {
+    setTeachers(teachers.map((teacher) => (
+      teacher.id === editedTeacher.id ? editedTeacher : teacher
+    )))
+  }
+
 
   return (
     <>
@@ -67,6 +73,7 @@ export default function App({ Component, pageProps }) {
         teachers={teachers}
         onAddTeacher={handleAddTeacher}
         onDeleteTeacher={handleDeleteTeacher}
+        onEditTeacher={handleEditTeacher}
       />
     </>
   );
