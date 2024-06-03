@@ -1,4 +1,5 @@
 import { useState } from "react"
+import TeacherDetails from "./teacherDetails";
 export default function TeacherItem({ teacher, }) {
 
     const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +18,12 @@ export default function TeacherItem({ teacher, }) {
             <th>{teacher.email}</th>
             <th style={{ width: "70px" }}><button onClick={() => setIsOpen(!isOpen)} style={{ background: "darkslategray", color: "white" }}>details</button></th>
 
+            {isOpen && (
+                <TeacherDetails
+                    teacher={teacher}
+                    onClose={closeDetails} />
 
+            )}
 
         </tr >
     )
