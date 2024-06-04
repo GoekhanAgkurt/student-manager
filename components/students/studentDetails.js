@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-export default function StudentDetails({ student, onClose, onDeleteStudent, onEditStudent }) {
+export default function StudentDetails({ student, onClose, onDeleteStudent, onEditStudent, groups }) {
 
     const [isOpen, setIsOpen] = useState(false);
     const [isEdit, setIsEdit] = useState(false);
@@ -81,13 +81,13 @@ export default function StudentDetails({ student, onClose, onDeleteStudent, onEd
 
                     <div className="buttonBox">
                         <button className="submitButton" type="button" onClick={() => setIsEdit(!isEdit)}>Edit</button>
-                        <button className="cancelButton" type="button" onClick={handleDelete}>Delete</button>
+                        <button className="deleteButton" type="button" onClick={handleDelete}>Delete</button>
                     </div>
                 </div>
             ) : (
 
                 <div className="modalLeft">
-                    <span className="closeIcon" onClick={() => setIsOpen(!isOpen)}>✖️</span>
+                    <span className="closeIcon" onClick={() => setIsEdit(!isEdit)}>✖️</span>
                     <form onSubmit={editStudent}>
 
                         <h2>Please fill the form</h2>
@@ -119,12 +119,12 @@ export default function StudentDetails({ student, onClose, onDeleteStudent, onEd
                             <div className="formBox">
                                 <label>Group</label>
                                 <select name="group">
-                                    <option value="">{student.group}</option>
-                                    <option>JavaScript</option>
-                                    <option>Java</option>
-                                    <option>Python</option>
-                                </select>
+                                    <option>{student.group}</option>
+                                    {groups.map((group) => (
+                                        <option>{group.groupName}</option>
+                                    ))}
 
+                                </select>
                             </div>
 
                             <div className="formBox">

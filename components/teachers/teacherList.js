@@ -7,9 +7,9 @@ export default function TeacherList({ teachers, groups, onDeleteTeacher, onEditT
         <table>
             <thead>
                 <tr>
-                    <th> Id</th>
                     <th>Name</th>
                     <th>Second Name</th>
+                    <th> Id</th>
                     <th> Group</th>
                     <th> Phone</th>
                     <th> E-Mail</th>
@@ -20,8 +20,8 @@ export default function TeacherList({ teachers, groups, onDeleteTeacher, onEditT
                 {teachers.map((teacher) => (
                     <TeacherItem
                         teacher={teacher}
-                        key={teacher.id}
                         teachers={teachers}
+                        key={teacher.id}
                         groups={groups}
                         onDeleteTeacher={onDeleteTeacher}
                         onEditTeacher={onEditTeacher}

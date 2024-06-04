@@ -1,6 +1,6 @@
 import StudentItem from "./studentItem";
 
-export default function StudentList({ students, onDeleteStudent, onEditStudent }) {
+export default function StudentList({ students, onDeleteStudent, onEditStudent, groups }) {
     return (
         <table>
             <thead>
@@ -21,11 +21,14 @@ export default function StudentList({ students, onDeleteStudent, onEditStudent }
                     <StudentItem
                         key={student.id}
                         student={student}
+                        groups={groups}
                         onDeleteStudent={onDeleteStudent}
-                        onEditStudent={onEditStudent} />
+                        onEditStudent={onEditStudent}
+                    />
                 ))}
-
             </tbody>
+
+
         </table>
 
     )

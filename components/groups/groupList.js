@@ -1,6 +1,6 @@
 import GroupItem from "./groupItem";
 
-export default function GroupList({ groups, onEditGroup, onDeleteGroup }) {
+export default function GroupList({ groups, onEditGroup, onDeleteGroup, teachers, students }) {
     return (
         <table>
             <thead>
@@ -21,6 +21,8 @@ export default function GroupList({ groups, onEditGroup, onDeleteGroup }) {
                         groups={groups}
                         onEditGroup={onEditGroup}
                         onDeleteGroup={onDeleteGroup}
+                        teachers={teachers}
+                        students={students}
                     />
                 ))}
             </tbody>

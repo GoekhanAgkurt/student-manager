@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 
-export default function CreateGroup({ onAddGroup }) {
+export default function CreateGroup({ onAddGroup, teachers }) {
 
     const [createIsOpen, setCreateIsOpen] = useState(false);
 
@@ -46,7 +46,7 @@ export default function CreateGroup({ onAddGroup }) {
                             <section className="formWrapper">
                                 <div className="formBox">
                                     <label>Group Name</label>
-                                    <input placeholder="Musiktruppe" name="groupName"></input>
+                                    <input placeholder="Group Name" name="groupName"></input>
                                 </div>
 
                                 <div className="formBox">
@@ -56,7 +56,14 @@ export default function CreateGroup({ onAddGroup }) {
 
                                 <div className="formBox">
                                     <label>Teacher</label>
-                                    <input placeholder="dd.mm.yyyy" name="teacherName"></input>
+                                    <select name="teacherName" defaultValue="">
+                                        <option value="" disabled>Select a Teacher</option>
+                                        {teachers.map((teacher, index) => (
+                                            <option key={index} value={teacher.name}>
+                                                {teacher.name} {teacher.secondName}
+                                            </option>
+                                        ))}
+                                    </select>
                                 </div>
 
 
