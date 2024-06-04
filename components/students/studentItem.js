@@ -1,7 +1,7 @@
 import { useState } from "react"
 import StudentDetails from "./studentDetails";
 
-export default function StudentItem({ student, onDeleteStudent, onEditStudent }) {
+export default function StudentItem({ student, onDeleteStudent, onEditStudent, groups }) {
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -26,6 +26,7 @@ export default function StudentItem({ student, onDeleteStudent, onEditStudent })
             {isOpen && (
                 <StudentDetails
                     student={student}
+                    groups={groups}
                     onClose={onClose}
                     onDeleteStudent={onDeleteStudent}
                     onEditStudent={onEditStudent}

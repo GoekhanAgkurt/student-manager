@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import StudentDetails from "./studentDetails";
 
 
-export default function CreateStudent({ onAddStudent, }) {
+export default function CreateStudent({ onAddStudent, groups }) {
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -68,11 +68,14 @@ export default function CreateStudent({ onAddStudent, }) {
 
                                 <div className="formBox">
                                     <label>Group</label>
-                                    <select name="group">
-                                        <option value="">{StudentDetails.group}</option>
-                                        <option>JavaScript</option>
-                                        <option>Java</option>
-                                        <option>Python</option>
+                                    <select name="group" defaultValue="">
+                                        <option value="" disabled>Select a Group</option>
+                                        {groups.map((group, index) => (
+                                            <option key={index} value={group.name}>
+                                                {group.groupName}
+                                            </option>
+                                        ))}
+
                                     </select>
 
                                 </div>

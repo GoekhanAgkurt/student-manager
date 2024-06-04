@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-export default function DetailsGroup({ group, onClose, onDeleteGroup, onEditGroup, groups }) {
+export default function DetailsGroup({ group, onClose, onDeleteGroup, onEditGroup, groups, teachers, students, groupStudents }) {
     const [isEdit, setIsEdit] = useState(false);
 
 
@@ -29,6 +29,8 @@ export default function DetailsGroup({ group, onClose, onDeleteGroup, onEditGrou
         onEditGroup(editedGroup);
         setIsEdit(false);
     };
+
+    console.log("test für ", teachers)
 
     return (
         <div className="modalWindow" onClick={(e) => e.stopPropagation()}>
@@ -59,8 +61,11 @@ export default function DetailsGroup({ group, onClose, onDeleteGroup, onEditGrou
                         </div>
 
                         <div className="formBox">
-                            <label>Phone</label>
-                            <p>{group.teacherNumber}</p>
+                            <label>Number of Student({groupStudents.length})</label>
+                            <p>{groupStudents.map((student) => (
+                                <li>{student.name}, {student.secondName}</li>
+                            ))}</p>
+
                         </div>
                     </section>
 
@@ -79,10 +84,11 @@ export default function DetailsGroup({ group, onClose, onDeleteGroup, onEditGrou
                         <section className="formWrapper">
                             <div className="formBox">
                                 <label>Group</label>
-                                <select name="groupName">
-                                    <option defaultValue="">{group.groupName}</option>
-                                    {groups.map((group) => (
-                                        <option>{group.groupName}</option>
+                                <select name="groupName" defaultValue={group.groupName}>
+                                    {groups.map((group, index) => (
+                                        <option key={index} value={group.groupName}>
+                                            {group.groupName}
+                                        </option>
                                     ))}
                                 </select>
 
@@ -95,7 +101,12 @@ export default function DetailsGroup({ group, onClose, onDeleteGroup, onEditGrou
 
                             <div className="formBox">
                                 <label>Teacher </label>
-                                <select name="">
+                                <select name="teacherName" defaultValue={group.teacherName}>
+                                    {teachers.map((teacher, index) => (
+                                        <option key={index} value={teacher.name}>
+                                            {teacher.name}, {teacher.secondName}
+                                        </option>
+                                    ))}
                                 </select>
                             </div>
 

@@ -34,7 +34,7 @@ export default function CreateTeacher({ onAddTeacher, groups }) {
                     <span onClick={() => setCreateIsOpen(!createIsOpen)} className="closeIcon" style={{ float: "right" }} >✖️</span>
                     <form className="createForm" onSubmit={addTeacher}>
 
-                        <h2>Please fill the form</h2>
+                        <h2>Add Teacher</h2>
 
                         <section className="formWrapper">
                             <div className="formBox">
@@ -49,9 +49,12 @@ export default function CreateTeacher({ onAddTeacher, groups }) {
 
                             <div className="formBox">
                                 <label>Group</label>
-                                <select name='group'>
-                                    {groups.map((group) => (
-                                        <option>{group.name}</option>
+                                <select name="group" defaultValue="">
+                                    <option value="" disabled>Select a Group</option>
+                                    {groups.map((group, index) => (
+                                        <option key={index} value={group.name}>
+                                            {group.groupName}
+                                        </option>
                                     ))}
                                 </select>
                             </div>
@@ -63,9 +66,12 @@ export default function CreateTeacher({ onAddTeacher, groups }) {
 
                             <div className="formBox">
                                 <label>Phone</label>
-                                <input type="tel" placeholder="0176 11 22 33" name="parentNumber" pattern="[0-9]*"></input>
+                                <input type="tel" placeholder="0176 11 22 33" name="phone" pattern="[0-9]*"></input>
                             </div>
+
+
                         </section>
+
 
                         <div className="buttonBox">
                             <button className="submitButton" type="submit">Submit</button>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-export default function TeacherDetails({ teacher, onClose, onDeleteTeacher, onEditTeacher }) {
+export default function TeacherDetails({ teacher, onClose, onDeleteTeacher, onEditTeacher, groups }) {
 
     const [isEdit, setIsEdit] = useState(false);
 
@@ -68,7 +68,7 @@ export default function TeacherDetails({ teacher, onClose, onDeleteTeacher, onEd
 
                     <div className="buttonBox">
                         <button className="submitButton" type="button" onClick={() => setIsEdit(!isEdit)}>Edit</button>
-                        <button className="cancelButton" type="button" onClick={() => handleDelete(teacher.id)} >Delete</button>
+                        <button className="deleteButton" type="button" onClick={() => handleDelete(teacher.id)} >Delete</button>
                     </div>
                 </div>
 
@@ -93,8 +93,13 @@ export default function TeacherDetails({ teacher, onClose, onDeleteTeacher, onEd
 
                             <div className="formBox">
                                 <label>Group </label>
-                                <input defaultValue={teacher.group} name="group" />
-                            </div>
+                                <select name="group">
+                                    <option>{teacher.group}</option>
+                                    {groups.map((group) => (
+                                        <option>{group.groupName}</option>
+                                    ))}
+
+                                </select>                            </div>
 
                             <div className="formBox">
                                 <label>E-Mail</label>
