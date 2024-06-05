@@ -28,6 +28,7 @@ export default function TeacherItem({ teacher, onDeleteTeacher, onEditTeacher, t
 
             {isOpen && (
                 <TeacherDetails
+                    key={key.id}
                     teacher={teacher}
                     teachers={teachers}
                     groups={groups}

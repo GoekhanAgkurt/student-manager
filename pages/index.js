@@ -7,6 +7,7 @@ import CreateTeacher from "@/components/teachers/createTeachers";
 import TeacherList from "@/components/teachers/teacherList";
 import { useState, useEffect } from "react";
 import SearchBar from "@/components/searchBar";
+import Header from "@/components/header";
 
 export default function HomePage({
   students, onAddStudent, onDeleteStudent, onEditStudent, groups, onAddGroup, onEditGroup, onDeleteGroup, teachers, onAddTeacher, onDeleteTeacher, onEditTeacher,
@@ -48,6 +49,7 @@ export default function HomePage({
 
   return (
     <div>
+      <Header />
 
       <TabBar activeTab={isActiveTab} setActiveTab={setIsActiveTab} students={students} groups={groups} teachers={teachers} />
 
