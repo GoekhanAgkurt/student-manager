@@ -228,6 +228,7 @@ div .buttonBox {
   background-color: darkslategray;
   color: white;
   padding: 15px 30px 15px 30px;
+  width: 200px;
 }
 
 .detailsButton {
