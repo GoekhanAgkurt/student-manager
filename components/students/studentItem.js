@@ -25,6 +25,7 @@ export default function StudentItem({ student, onDeleteStudent, onEditStudent, g
 
             {isOpen && (
                 <StudentDetails
+                    key={student.id}
                     student={student}
                     groups={groups}
                     onClose={onClose}

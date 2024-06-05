@@ -30,7 +30,6 @@ export default function DetailsGroup({ group, onClose, onDeleteGroup, onEditGrou
         setIsEdit(false);
     };
 
-    console.log("test für ", teachers)
 
     return (
         <div className="modalWindow" onClick={(e) => e.stopPropagation()}>
