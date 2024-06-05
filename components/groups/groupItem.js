@@ -25,7 +25,6 @@ export default function GroupItem({ group, groups, onEditGroup, onDeleteGroup, t
 
             {detailIsOpen && (
                 <DetailsGroup
-                    key={group.id}
                     group={group} groups={groups}
                     onEditGroup={onEditGroup}
                     onClose={closeDetails}

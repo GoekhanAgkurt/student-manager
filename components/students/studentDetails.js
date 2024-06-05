@@ -121,7 +121,7 @@ export default function StudentDetails({ student, onClose, onDeleteStudent, onEd
                                 <select name="group">
                                     <option>{student.group}</option>
                                     {groups.map((group) => (
-                                        <option>{group.groupName}</option>
+                                        <option key={group.id}>{group.groupName}</option>
                                     ))}
 
                                 </select>
