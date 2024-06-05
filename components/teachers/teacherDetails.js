@@ -96,7 +96,7 @@ export default function TeacherDetails({ teacher, onClose, onDeleteTeacher, onEd
                                 <select name="group">
                                     <option>{teacher.group}</option>
                                     {groups.map((group) => (
-                                        <option>{group.groupName}</option>
+                                        <option key={index}>{group.groupName}</option>
                                     ))}
 
                                 </select>                            </div>
