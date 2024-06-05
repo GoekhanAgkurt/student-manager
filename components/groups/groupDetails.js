@@ -63,7 +63,7 @@ export default function DetailsGroup({ group, onClose, onDeleteGroup, onEditGrou
                         <div className="formBox">
                             <label>Number of Student({groupStudents.length})</label>
                             <p>{groupStudents.map((student) => (
-                                <li>{student.name}, {student.secondName}</li>
+                                <li key={student.id}>{student.name}, {student.secondName}</li>
                             ))}</p>
 
                         </div>
