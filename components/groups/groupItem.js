@@ -24,7 +24,15 @@ export default function GroupItem({ group, groups, onEditGroup, onDeleteGroup, t
             </tr>
 
             {detailIsOpen && (
-                <DetailsGroup group={group} groups={groups} onEditGroup={onEditGroup} onClose={closeDetails} onDeleteGroup={onDeleteGroup} teachers={teachers} students={students} groupStudents={groupStudents} />
+                <DetailsGroup
+                    key={group.id}
+                    group={group} groups={groups}
+                    onEditGroup={onEditGroup}
+                    onClose={closeDetails}
+                    onDeleteGroup={onDeleteGroup}
+                    teachers={teachers} students={students}
+                    groupStudents={groupStudents}
+                />
             )
             }
 
