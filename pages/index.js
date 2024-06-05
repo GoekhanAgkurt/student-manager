@@ -5,14 +5,46 @@ import StudentList from "@/components/students/studentsList";
 import TabBar from "@/components/tabBar";
 import CreateTeacher from "@/components/teachers/createTeachers";
 import TeacherList from "@/components/teachers/teacherList";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import SearchBar from "@/components/searchBar";
 
 export default function HomePage({
   students, onAddStudent, onDeleteStudent, onEditStudent, groups, onAddGroup, onEditGroup, onDeleteGroup, teachers, onAddTeacher, onDeleteTeacher, onEditTeacher,
 }) {
 
+  const [foundStudent, setFoundStudent] = useState(students);
+  const [foundGroup, setFoundGroup] = useState(groups);
+  const [foundTeacher, setFoundTeacher] = useState(teachers)
 
   const [isActiveTab, setIsActiveTab] = useState("students")
+
+
+
+  const handleSearchStudents = (results) => {
+    setFoundStudent(results);
+  };
+
+  const handleSearchGroups = (results) => {
+    setFoundGroup(results);
+  };
+
+  const handleSearchTeachers = (results) => {
+    setFoundTeacher(results);
+  };
+
+  useEffect(() => {
+    setFoundStudent(students);
+  }, [students]);
+
+
+  useEffect(() => {
+    setFoundGroup(groups);
+  }, [groups]);
+
+  useEffect(() => {
+    setFoundTeacher(teachers);
+  }, [teachers]);
+
 
   return (
     <div>
@@ -24,8 +56,9 @@ export default function HomePage({
           <div style={{ width: "97%", margin: "auto", display: "flex", margin: " 0px auto" }}>
 
             <CreateStudent onAddStudent={onAddStudent} groups={groups} />
+            <SearchBar data={students} onSearch={handleSearchStudents} placeholder="Search by first name, second name or ID" />
           </div>
-          <StudentList students={students} onDeleteStudent={onDeleteStudent} onEditStudent={onEditStudent} groups={groups} />
+          <StudentList students={foundStudent} onDeleteStudent={onDeleteStudent} onEditStudent={onEditStudent} groups={groups} />
         </>
       )}
 
@@ -34,8 +67,10 @@ export default function HomePage({
         <>
           <div style={{ width: "97%", margin: "auto", display: "flex", margin: " 0 auto" }}>
             <CreateGroup onAddGroup={onAddGroup} teachers={teachers} />
+            <SearchBar data={groups} onSearch={handleSearchGroups} placeholder="Search by group name or ID" />
+
           </div>
-          <GroupList groups={groups} onEditGroup={onEditGroup} onDeleteGroup={onDeleteGroup} teachers={teachers} students={students} />
+          <GroupList groups={foundGroup} onEditGroup={onEditGroup} onDeleteGroup={onDeleteGroup} teachers={teachers} students={students} />
         </>
       )
       }
@@ -44,8 +79,10 @@ export default function HomePage({
         <>
           <div style={{ width: "97%", margin: "auto", display: "flex", margin: " 0 auto" }}>
             <CreateTeacher onAddTeacher={onAddTeacher} groups={groups} />
+            <SearchBar data={teachers} onSearch={handleSearchTeachers} placeholder="Search Teacher name, second name or ID" />
+
           </div>
-          <TeacherList teachers={teachers} onDeleteTeacher={onDeleteTeacher} onEditTeacher={onEditTeacher} groups={groups} />
+          <TeacherList teachers={foundTeacher} onDeleteTeacher={onDeleteTeacher} onEditTeacher={onEditTeacher} groups={groups} />
         </>
       )
       }
