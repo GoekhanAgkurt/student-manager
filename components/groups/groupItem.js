@@ -13,21 +13,20 @@ export default function GroupItem({ group, groups, onEditGroup, onDeleteGroup, t
     const teacher = teachers.find(teacher => teacher.name === group.teacherName);
 
     return (
-        <>
-            <tr>
-                <td> {group.groupName}</td>
-                <td>  {group.classRoom}</td>
-                <td>  {group.id}</td>
-                <td>{teacher ? `${teacher.name} ${teacher.secondName}` : group.teacherName}</td>
-                <td>  {groupStudents.length} </td>
-                <td><button className="detailsButton" onClick={() => setDetailIsOpen(!detailIsOpen)}>details</button></td>
-            </tr>
+        <tr>
+            <td> {group.groupName}</td>
+            <td>  {group.classRoom}</td>
+            <td>  {group.id}</td>
+            <td>{teacher ? `${teacher.name} ${teacher.secondName}` : group.teacherName}</td>
+            <td>  {groupStudents.length} </td>
+            <td><button className="detailsButton" onClick={() => setDetailIsOpen(!detailIsOpen)}>details</button></td>
+            <td>
+                {detailIsOpen && (
+                    <DetailsGroup group={group} groups={groups} onEditGroup={onEditGroup} onClose={closeDetails} onDeleteGroup={onDeleteGroup} teachers={teachers} students={students} groupStudents={groupStudents} />
+                )}
+            </td>
+        </tr>
 
-            {detailIsOpen && (
-                <DetailsGroup group={group} groups={groups} onEditGroup={onEditGroup} onClose={closeDetails} onDeleteGroup={onDeleteGroup} teachers={teachers} students={students} groupStudents={groupStudents} />
-            )
-            }
 
-        </>
     );
 }
