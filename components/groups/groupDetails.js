@@ -30,7 +30,6 @@ export default function DetailsGroup({ group, onClose, onDeleteGroup, onEditGrou
         setIsEdit(false);
     };
 
-    console.log("test für ", teachers)
 
     return (
         <div className="modalWindow" onClick={(e) => e.stopPropagation()}>
@@ -40,30 +39,30 @@ export default function DetailsGroup({ group, onClose, onDeleteGroup, onEditGrou
                     <h2>Detailspage Group</h2>
 
                     <div className="styles.formBox">
-                        <label>Group ID:</label>
+                        <label id="id">Group ID:</label>
                         <p>{group.id}</p>
                     </div>
 
                     <section className="formWrapper">
                         <div className="formBox">
-                            <label>Group</label>
+                            <label id="groupName">Group</label>
                             <p>{group.groupName}</p>
                         </div>
 
                         <div className="formBox">
-                            <label>Classroom</label>
+                            <label id="classRoom">Classroom</label>
                             <p>{group.classRoom}</p>
                         </div>
 
                         <div className="formBox">
-                            <label>Teacher</label>
+                            <label id="teacherName">Teacher</label>
                             <p>{group.teacherName}</p>
                         </div>
 
                         <div className="formBox">
-                            <label>Number of Student({groupStudents.length})</label>
+                            <label id="student">Number of Student({groupStudents.length})</label>
                             <p>{groupStudents.map((student) => (
-                                <li key={student.id}>{student.name}, {student.secondName}</li>
+                                <li key={student.id} id="student">{student.name}, {student.secondName}</li>
                             ))}</p>
 
                         </div>
@@ -83,8 +82,8 @@ export default function DetailsGroup({ group, onClose, onDeleteGroup, onEditGrou
 
                         <section className="formWrapper">
                             <div className="formBox">
-                                <label>Group</label>
-                                <select name="groupName" defaultValue={group.groupName}>
+                                <label id="groupName">Group</label>
+                                <select id="groupName" name="groupName" defaultValue={group.groupName}>
                                     {groups.map((group, index) => (
                                         <option key={index} value={group.groupName}>
                                             {group.groupName}
@@ -95,13 +94,13 @@ export default function DetailsGroup({ group, onClose, onDeleteGroup, onEditGrou
                             </div>
 
                             <div className="formBox">
-                                <label>Class</label>
-                                <input defaultValue={group.classRoom} name="classRoom" />
+                                <label id="classRoom">Class</label>
+                                <input id="classRoom" defaultValue={group.classRoom} name="classRoom" />
                             </div>
 
                             <div className="formBox">
-                                <label>Teacher </label>
-                                <select name="teacherName" defaultValue={group.teacherName}>
+                                <label id="teacher">Teacher </label>
+                                <select id="teacherName" name="teacherName" defaultValue={group.teacherName}>
                                     {teachers.map((teacher, index) => (
                                         <option key={index} value={teacher.name}>
                                             {teacher.name}, {teacher.secondName}
@@ -111,8 +110,8 @@ export default function DetailsGroup({ group, onClose, onDeleteGroup, onEditGrou
                             </div>
 
                             <div className="formBox">
-                                <label>Phone</label>
-                                <input defaultValue={group.teacherNumber} name="teacherNumber" />
+                                <label id="teacherNumber">Phone</label>
+                                <input id="teacherNumber" defaultValue={group.teacherNumber} name="teacherNumber" />
                             </div>
                         </section>
 

@@ -147,8 +147,6 @@ table tr thead {
   width: 100%;
   height: 100%;
   padding: 0px;
-  border: 1px solid black;
-  border-radius: 5px;
   z-index: 1000;
 }
 

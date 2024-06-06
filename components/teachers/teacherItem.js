@@ -9,33 +9,29 @@ export default function TeacherItem({ teacher, onDeleteTeacher, onEditTeacher, t
         setIsOpen(false);
     }
 
-
-
     return (
-
-        <>
-            <tr >
-                <td>{teacher.name}</td>
-                <td>{teacher.secondName}</td>
-                <td>{teacher.id}</td>
-                <td>{teacher.group} </td>
-                <td>{teacher.phone}</td>
-                <td>{teacher.email}</td>
-                <td style={{ width: "70px" }}>
-                    <button onClick={() => setIsOpen(!isOpen)} className="detailsButton">details</button>
-                </td>
-            </tr >
-
-            {isOpen && (
-                <TeacherDetails
-                    teacher={teacher}
-                    teachers={teachers}
-                    groups={groups}
-                    onClose={closeDetails}
-                    onDeleteTeacher={onDeleteTeacher}
-                    onEditTeacher={onEditTeacher}
-                />
-            )}
-        </>
+        <tr >
+            <td>{teacher.name}</td>
+            <td>{teacher.secondName}</td>
+            <td>{teacher.id}</td>
+            <td>{teacher.group} </td>
+            <td>{teacher.phone}</td>
+            <td>{teacher.email}</td>
+            <td style={{ width: "70px" }}>
+                <button onClick={() => setIsOpen(!isOpen)} className="detailsButton">details</button>
+            </td>
+            <td>
+                {isOpen && (
+                    <TeacherDetails
+                        teacher={teacher}
+                        teachers={teachers}
+                        groups={groups}
+                        onClose={closeDetails}
+                        onDeleteTeacher={onDeleteTeacher}
+                        onEditTeacher={onEditTeacher}
+                    />
+                )}
+            </td>
+        </tr >
     )
 }
