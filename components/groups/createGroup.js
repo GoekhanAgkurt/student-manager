@@ -13,12 +13,31 @@ export default function CreateGroup({ onAddGroup, teachers }) {
         const formData = new FormData(event.target);
         const data = Object.fromEntries(formData);
 
+        const startDate = new Date(data.startDate);
+        const currentDate = new Date();
+        let formattedDate = data.startDate;
+        let isActive = true;
+
+
+        if (startDate < currentDate) {
+            formattedDate = `since ${data.startDate}​`;
+            isActive = true;
+
+        } else {
+            formattedDate = `on ${data.startDate}`;
+            isActive = false;
+
+        }
+
         const newGroup = {
             id: uuidv4(),
             groupName: data.groupName,
             classRoom: data.classRoom,
+            startDate: formattedDate, // Verwenden Sie das formatierte Datum
             teacherName: data.teacherName,
             teacherNumber: data.teacherNumber,
+            active: isActive ? "🟢" : "⏳"
+
         }
         onAddGroup(newGroup);
         setCreateIsOpen(false);
@@ -52,6 +71,11 @@ export default function CreateGroup({ onAddGroup, teachers }) {
                                 <div className="formBox">
                                     <label>Classrom</label>
                                     <input placeholder="Class 2b" name="classRoom"></input>
+                                </div>
+
+                                <div className="formBox">
+                                    <label>Date of Start</label>
+                                    <input type="date" placeholder="dd.mm.yyyy" name="startDate"></input>
                                 </div>
 
                                 <div className="formBox">

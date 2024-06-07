@@ -44,37 +44,37 @@ export default function StudentDetails({ student, onClose, onDeleteStudent, onEd
 
                     <section className="formWrapper">
                         <div className="formBox">
-                            <label>Name</label>
+                            <label id="name">Name</label>
                             <p>{student.name}</p>
                         </div>
 
                         <div className="formBox">
-                            <label>Second Name</label>
+                            <label id="secondName">Second Name</label>
                             <p>{student.secondName}</p>
                         </div>
 
                         <div className="formBox">
-                            <label>sex</label>
+                            <label id="sex">sex</label>
                             <p>{student.sex}</p>
                         </div>
 
                         <div className="formBox">
-                            <label>Birthday</label>
+                            <label id="birthday">Birthday</label>
                             <p>{student.birthday}</p>
                         </div>
 
                         <div className="formBox">
-                            <label>Group</label>
+                            <label id="group">Group</label>
                             <p>{student.group}</p>
                         </div>
 
                         <div className="formBox">
-                            <label >E-Mail</label>
+                            <label id="email" >E-Mail</label>
                             <p>{student.email}</p>
                         </div>
 
                         <div className="formBox">
-                            <label>Phone</label>
+                            <label id="phone">Phone</label>
                             <p>{student.phone}</p>
                         </div>
                     </section>
@@ -94,17 +94,17 @@ export default function StudentDetails({ student, onClose, onDeleteStudent, onEd
 
                         <section className="formWrapper">
                             <div className="formBox">
-                                <label>Name</label>
+                                <label id="name">Name</label>
                                 <input defaultValue={student.name} name="name" autoComplete="of" />
                             </div>
 
                             <div className="formBox">
-                                <label>Second Name</label>
+                                <label id="secondName">Second Name</label>
                                 <input defaultValue={student.secondName} name="secondName" autoComplete="of" />
                             </div>
 
                             <div className="formBox">
-                                <label>sex</label>
+                                <label id="sex">sex</label>
                                 <select name="sex" defaultValue={student.sex}>
                                     <option value="masculine"> masculine</option>
                                     <option value="feminine">feminine </option>
@@ -112,12 +112,12 @@ export default function StudentDetails({ student, onClose, onDeleteStudent, onEd
                             </div>
 
                             <div className="formBox">
-                                <label>Birthday</label>
+                                <label id="birthday">Birthday</label>
                                 <input type="date" defaultValue={student.birthday} name="birthday" autoComplete="of" />
                             </div>
 
                             <div className="formBox">
-                                <label>Group</label>
+                                <label id="group">Group</label>
                                 <select name="group">
                                     <option>{student.group}</option>
                                     {groups.map((group) => (
@@ -128,12 +128,12 @@ export default function StudentDetails({ student, onClose, onDeleteStudent, onEd
                             </div>
 
                             <div className="formBox">
-                                <label >E-Mail</label>
+                                <label id="email">E-Mail</label>
                                 <input type="mail" defaultValue={student.birthday} name="email" autoComplete="of" />
                             </div>
 
                             <div className="formBox">
-                                <label>Phone</label>
+                                <label id="phone">Phone</label>
                                 <input type="phone" defaultValue={student.phone} name="phone" />
 
                             </div>

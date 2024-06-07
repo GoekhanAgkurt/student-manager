@@ -11,8 +11,8 @@ export default function StudentItem({ student, onDeleteStudent, onEditStudent, g
 
     return (
         <tr>
-            <td> {student.name}</td>
-            <td> {student.secondName}</td>
+            <td> {student.name} </td>
+            <td>{student.secondName}</td>
             <td> {student.id}</td>
             <td> {student.birthday}</td>
             <td> {student.group}</td>

@@ -18,12 +18,28 @@ export default function DetailsGroup({ group, onClose, onDeleteGroup, onEditGrou
         const formData = new FormData(event.target);
         const data = Object.fromEntries(formData);
 
+        const startDate = new Date(data.startDate);
+        const currentDate = new Date();
+        let formattedDate = data.startDate;
+        let isActive = true;
+
+        if (startDate < currentDate) {
+            formattedDate = `since ${data.startDate}​`;
+            isActive = true;
+
+        } else {
+            formattedDate = `on ${data.startDate}`;
+            isActive = false;
+        }
+
         const editedGroup = {
             id: group.id,
             groupName: data.groupName,
             classRoom: data.classRoom,
+            startDate: formattedDate,
             teacherName: data.teacherName,
             teacherNumber: data.teacherNumber,
+            active: isActive ? "🟢" : "⏳"
         };
 
         onEditGroup(editedGroup);
@@ -52,6 +68,11 @@ export default function DetailsGroup({ group, onClose, onDeleteGroup, onEditGrou
                         <div className="formBox">
                             <label id="classRoom">Classroom</label>
                             <p>{group.classRoom}</p>
+                        </div>
+
+                        <div className="formBox">
+                            <label id="startDate">Date of Start</label>
+                            <p>{group.startDate}</p>
                         </div>
 
                         <div className="formBox">
@@ -90,12 +111,16 @@ export default function DetailsGroup({ group, onClose, onDeleteGroup, onEditGrou
                                         </option>
                                     ))}
                                 </select>
-
                             </div>
 
                             <div className="formBox">
                                 <label id="classRoom">Class</label>
                                 <input id="classRoom" defaultValue={group.classRoom} name="classRoom" />
+                            </div>
+
+                            <div className="formBox">
+                                <label id="startDate">Date of Start</label>
+                                <input type="date" defaultValue={group.startDate} name="startDate" autoComplete="of" />
                             </div>
 
                             <div className="formBox">

@@ -7,6 +7,7 @@ import CreateTeacher from "@/components/teachers/createTeachers";
 import TeacherList from "@/components/teachers/teacherList";
 import { useState, useEffect } from "react";
 import SearchBar from "@/components/searchBar";
+import Header from "@/components/header";
 
 export default function HomePage({
   students, onAddStudent, onDeleteStudent, onEditStudent, groups, onAddGroup, onEditGroup, onDeleteGroup, teachers, onAddTeacher, onDeleteTeacher, onEditTeacher,
@@ -49,11 +50,13 @@ export default function HomePage({
   return (
     <div>
 
+      <Header />
+
       <TabBar activeTab={isActiveTab} setActiveTab={setIsActiveTab} students={students} groups={groups} teachers={teachers} />
 
       {isActiveTab === "students" && (
         <>
-          <div style={{ width: "97%", margin: "auto", display: "flex", margin: " 0px auto" }}>
+          <div style={{ width: "97%", margin: "auto", display: "flex", margin: " 0px auto", minWidth: "900px" }}>
 
             <CreateStudent onAddStudent={onAddStudent} groups={groups} />
             <SearchBar data={students} onSearch={handleSearchStudents} placeholder="Search by first name, second name or ID" />
@@ -65,7 +68,7 @@ export default function HomePage({
 
       {isActiveTab === "groups" && (
         <>
-          <div style={{ width: "97%", margin: "auto", display: "flex", margin: " 0 auto" }}>
+          <div style={{ width: "97%", margin: "auto", display: "flex", margin: " 0 auto", minWidth: "900px" }}>
             <CreateGroup onAddGroup={onAddGroup} teachers={teachers} />
             <SearchBar data={groups} onSearch={handleSearchGroups} placeholder="Search by group name or ID" />
 
@@ -77,7 +80,7 @@ export default function HomePage({
 
       {isActiveTab === "teachers" && (
         <>
-          <div style={{ width: "97%", margin: "auto", display: "flex", margin: " 0 auto" }}>
+          <div style={{ width: "97%", margin: "auto", display: "flex", margin: " 0 auto", minWidth: "900px" }}>
             <CreateTeacher onAddTeacher={onAddTeacher} groups={groups} />
             <SearchBar data={teachers} onSearch={handleSearchTeachers} placeholder="Search Teacher name, second name or ID" />
 

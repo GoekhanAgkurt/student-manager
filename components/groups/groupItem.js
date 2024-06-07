@@ -17,8 +17,11 @@ export default function GroupItem({ group, groups, onEditGroup, onDeleteGroup, t
             <td> {group.groupName}</td>
             <td>  {group.classRoom}</td>
             <td>  {group.id}</td>
+            <td>  {group.startDate}</td>
             <td>{teacher ? `${teacher.name} ${teacher.secondName}` : group.teacherName}</td>
             <td>  {groupStudents.length} </td>
+            <td>  {group.active} </td>
+
             <td><button className="detailsButton" onClick={() => setDetailIsOpen(!detailIsOpen)}>details</button></td>
             <td>
                 {detailIsOpen && (
