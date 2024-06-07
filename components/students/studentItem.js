@@ -1,5 +1,6 @@
 import { useState } from "react"
 import StudentDetails from "./studentDetails";
+import Icon from "@/lib/icons";
 
 export default function StudentItem({ student, onDeleteStudent, onEditStudent, groups }) {
 
@@ -9,6 +10,17 @@ export default function StudentItem({ student, onDeleteStudent, onEditStudent, g
         setIsOpen(!isOpen)
     }
 
+    const renderSex = (sex) => {
+        if (sex === "boy") {
+            return <Icon variant="circle" color="#3864d1" />;
+        } else if (sex === "girl") {
+            return <Icon variant="circle" color="#ed58d2" />;
+        } else {
+            return sex; // Falls das Geschlecht etwas anderes oder leer ist
+        }
+    };
+
+
     return (
         <tr>
             <td> {student.name} </td>
@@ -16,9 +28,7 @@ export default function StudentItem({ student, onDeleteStudent, onEditStudent, g
             <td> {student.id}</td>
             <td> {student.birthday}</td>
             <td> {student.group}</td>
-            <td> {student.sex}</td>
-            <td>{student.email}</td>
-            <td> {student.phone}</td>
+            <td>{renderSex(student.sex)}</td> {/* Verwendung der renderSex-Funktion */}
             <td><button className="detailsButton" onClick={() => setIsOpen(!isOpen)}>details</button></td>
 
             <td>

@@ -8,8 +8,16 @@ export default function StudentDetails({ student, onClose, onDeleteStudent, onEd
 
 
     const handleDelete = () => {
-        onDeleteStudent(student.id);
-        onClose();
+
+        const shouldDelete = window.confirm(
+            `Are you sure you want to delete Student ${student.name} ${student.secondName}?`
+        );
+        if (shouldDelete) {
+            onDeleteStudent(student.id);
+            onClose();
+        }
+
+
     }
 
     function editStudent(event) {
@@ -41,6 +49,8 @@ export default function StudentDetails({ student, onClose, onDeleteStudent, onEd
                     <span className="closeIcon" onClick={onClose}>✖️</span>
 
                     <h2>Please fill the form</h2>
+                    <label id="id">Id</label>
+                    <p style={{ marginBottom: "40px" }}>{student.id}</p>
 
                     <section className="formWrapper">
                         <div className="formBox">
@@ -106,8 +116,8 @@ export default function StudentDetails({ student, onClose, onDeleteStudent, onEd
                             <div className="formBox">
                                 <label id="sex">sex</label>
                                 <select name="sex" defaultValue={student.sex}>
-                                    <option value="masculine"> masculine</option>
-                                    <option value="feminine">feminine </option>
+                                    <option value="boy"> boy</option>
+                                    <option value="girl">girl </option>
                                 </select>
                             </div>
 
