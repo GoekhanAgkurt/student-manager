@@ -5,12 +5,14 @@ export default function GroupList({ groups, onEditGroup, onDeleteGroup, teachers
         <table>
             <thead>
                 <tr>
-                    <th>Group Name</th>
-                    <th>Classroom</th>
-                    <th>Group Id</th>
-                    <th>Teacher</th>
-                    <th>Number</th>
-                    <th>Action</th>
+                    <th style={{ width: "17%" }}>Group Name</th>
+                    <th style={{ width: "13%" }}>Classroom</th>
+                    <th style={{ width: "37%" }}>Group Id</th>
+                    <th style={{ width: "20%" }}>Start</th>
+                    <th style={{ width: "20%" }}>Teacher</th>
+                    <th style={{ width: "10%" }}>Student</th>
+                    <th style={{ width: "17%" }}>Active</th>
+                    <th style={{ width: "20%" }}>Action</th>
                 </tr>
             </thead>
             <tbody>

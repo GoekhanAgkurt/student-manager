@@ -7,13 +7,13 @@ export default function TeacherList({ teachers, groups, onDeleteTeacher, onEditT
         <table>
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Second Name</th>
-                    <th> Id</th>
-                    <th> Group</th>
-                    <th> Phone</th>
-                    <th> E-Mail</th>
-                    <th> Action</th>
+                    <th style={{ width: "15%" }}>Name</th>
+                    <th style={{ width: "15%" }}>Second Name</th>
+                    <th style={{ width: "40%" }}> Id</th>
+                    <th style={{ width: "20%" }}> Group</th>
+                    <th style={{ width: "25%" }}> Phone</th>
+                    <th style={{ width: "30%" }}> E-Mail</th>
+                    <th style={{ width: "20%" }}> Action</th>
                 </tr>
             </thead>
             <tbody>

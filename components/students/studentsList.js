@@ -5,15 +5,15 @@ export default function StudentList({ students, onDeleteStudent, onEditStudent, 
         <table>
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Second Name</th>
-                    <th>ID</th>
-                    <th>Birthday</th>
-                    <th>Group</th>
-                    <th>sex</th>
-                    <th>E Mail</th>
-                    <th>Number</th>
-                    <th>Action</th>
+                    <th style={{ width: "17%" }}>Name</th>
+                    <th style={{ width: "20%" }}>Secondname</th>
+                    <th style={{ width: "45%" }}>ID</th>
+                    <th style={{ width: "20%" }}>Birthday</th>
+                    <th style={{ width: "20%" }}>Group</th>
+                    <th style={{ width: "15%" }}>sex</th>
+                    <th style={{ width: "40%" }}>E Mail</th>
+                    <th style={{ width: "30%" }}>Number</th>
+                    <th style={{ width: "20%" }}>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,9 +27,6 @@ export default function StudentList({ students, onDeleteStudent, onEditStudent, 
                     />
                 ))}
             </tbody>
-
-
         </table>
-
-    )
+    );
 }

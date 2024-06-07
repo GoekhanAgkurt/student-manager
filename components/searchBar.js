@@ -4,7 +4,6 @@ export default function SearchBar({ data, onSearch, placeholder }) {
     const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
-        // Verzögertes Suchergebnis zur Vermeidung von Endlosschleifen
         const timeoutId = setTimeout(() => {
             const foundItems = data.filter(item =>
                 Object.values(item).some(value =>
@@ -12,9 +11,9 @@ export default function SearchBar({ data, onSearch, placeholder }) {
                 )
             );
             onSearch(foundItems);
-        }, 300); // Setzt eine Verzögerung von 300 ms
+        }, 300);
 
-        return () => clearTimeout(timeoutId); // Bereinigt den Timeout, wenn sich der Effekt ändert
+        return () => clearTimeout(timeoutId);
     }, [searchTerm, data, onSearch]);
 
     return (
