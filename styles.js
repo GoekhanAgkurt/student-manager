@@ -17,11 +17,8 @@ export default createGlobalStyle`
   }
 
   header {
-    height: 50px;
     width: 100%;
     background-color: darkslategray;
-    margin-bottom: 20px;
-    border-bottom: 1px solid black;
     display: flex;
     justify-content: space-between;
     padding: 15px;
@@ -67,7 +64,7 @@ export default createGlobalStyle`
     border-collapse: collapse;
     font-size: 0.9em;
     width: 97%;
-    min-width: 400px;
+    min-width: 900px;
     margin: 10px auto;
     table-layout: fixed;
   }
@@ -229,4 +226,20 @@ export default createGlobalStyle`
     font-weight: bold;
     color: white;
   }
+
+  .circle {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.masculine {
+    background-color: blue;
+}
+
+.feminine {
+    background-color: pink;
+}
 `;

@@ -56,8 +56,11 @@ export default function CreateStudent({ onAddStudent, groups }) {
                                     <label>sex</label>
                                     <select>
                                         <option>no info</option>
-                                        <option>masculine</option>
-                                        <option>feminine</option>
+                                        <option>boy
+                                            <span className="circle masculine" style={{ height: "10px", width: "10px", borderRadius: "50%", background: "red" }}></span>
+                                        </option>
+                                        <option>girl
+                                        </option>
                                     </select>
                                 </div>
 

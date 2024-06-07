@@ -9,7 +9,7 @@ export default function Header() {
     return (
 
         <header>
-            <span>Student Manager</span>
+            <span style={{ fontSize: "23px" }}> Student Manager</span>
             <div style={{ position: "relative" }}>
 
                 <div onClick={() => setMenuIsOpen(!menuIsOpen)} style={{ cursor: "pointer" }}>

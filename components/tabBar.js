@@ -1,3 +1,5 @@
+import Icon from "@/lib/icons";
+
 
 export default function TabBar({ activeTab, setActiveTab, groups, students, teachers }) {
     return (
@@ -15,7 +17,9 @@ export default function TabBar({ activeTab, setActiveTab, groups, students, teac
                 width: "33.4%", background: "none",
                 borderBottom: activeTab === "groups" ? "4px solid darksLategray" : "4px solid lightGray", borderRadius: "0",
                 color: activeTab === "groups" ? " darksLategray" : "black",
-            }}><h3>Groups({groups.length})</h3></button>
+            }}>
+                <h3>Groups({groups.length})</h3>
+            </button>
 
 
             <button onClick={() => setActiveTab("teachers")} style={{
