@@ -6,6 +6,10 @@ export default function TeacherDetails({ teacher, onClose, onDeleteTeacher, onEd
     const [isEdit, setIsEdit] = useState(false);
 
     function handleDelete() {
+
+        const shouldDelete = window.confirm(`
+Are you sure you want to delete teacher ${teacher.name} ${teacher.secondName}?`)
+
         onDeleteTeacher(teacher.id);
         onClose();
     }
@@ -38,6 +42,12 @@ export default function TeacherDetails({ teacher, onClose, onDeleteTeacher, onEd
                     <span className="closeIcon" onClick={onClose}>✖️</span>
 
                     <h2>Please fill the form</h2>
+
+                    <div style={{ marginBottom: "30px" }}>
+                        <label id="id">Teacher ID:</label>
+                        <p>{teacher.id}</p>
+                    </div>
+
 
                     <section className="formWrapper">
                         <div className="formBox">

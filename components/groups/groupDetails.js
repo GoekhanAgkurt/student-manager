@@ -8,9 +8,17 @@ export default function DetailsGroup({ group, onClose, onDeleteGroup, onEditGrou
 
 
     const deleteGroup = () => {
-        onDeleteGroup(group.id);
-        onClose();
+
+        const shouldDelete = window.confirm(
+            `Are you sure you want to delete Group ${group.groupName}?`
+        );
+        if (shouldDelete) {
+            onDeleteGroup(group.id);
+            onClose();
+        }
     };
+
+
 
     const editGroup = (event) => {
         event.preventDefault();
@@ -54,7 +62,7 @@ export default function DetailsGroup({ group, onClose, onDeleteGroup, onEditGrou
                     <span className="closeIcon" onClick={onClose}>✖️</span>
                     <h2>Detailspage Group</h2>
 
-                    <div className="styles.formBox">
+                    <div style={{ marginBottom: "30px" }}>
                         <label id="id">Group ID:</label>
                         <p>{group.id}</p>
                     </div>

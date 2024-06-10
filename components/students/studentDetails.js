@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Icon from "@/lib/icons";
 
 
 export default function StudentDetails({ student, onClose, onDeleteStudent, onEditStudent, groups }) {
@@ -8,8 +9,15 @@ export default function StudentDetails({ student, onClose, onDeleteStudent, onEd
 
 
     const handleDelete = () => {
-        onDeleteStudent(student.id);
-        onClose();
+
+        const shouldDelete = window.confirm(
+            `Are you sure you want du delete Student ${student.name}?`
+        );
+        if (shouldDelete) {
+            onDeleteStudent(student.id);
+            onClose();
+        }
+
     }
 
     function editStudent(event) {
@@ -41,6 +49,11 @@ export default function StudentDetails({ student, onClose, onDeleteStudent, onEd
                     <span className="closeIcon" onClick={onClose}>✖️</span>
 
                     <h2>Please fill the form</h2>
+
+                    <div style={{ marginBottom: "30px" }}>
+                        <label id="id"> Student ID:</label>
+                        <p>{student.id}</p>
+                    </div>
 
                     <section className="formWrapper">
                         <div className="formBox">
@@ -106,8 +119,9 @@ export default function StudentDetails({ student, onClose, onDeleteStudent, onEd
                             <div className="formBox">
                                 <label id="sex">sex</label>
                                 <select name="sex" defaultValue={student.sex}>
-                                    <option value="masculine"> masculine</option>
-                                    <option value="feminine">feminine </option>
+                                    <option value="male"> no Information</option>
+                                    <option value="male"> male</option>
+                                    <option value="female">female  </option>
                                 </select>
                             </div>
 

@@ -55,9 +55,9 @@ export default function CreateStudent({ onAddStudent, groups }) {
                                 <div className="formBox">
                                     <label>sex</label>
                                     <select>
-                                        <option>no info</option>
-                                        <option>masculine</option>
-                                        <option>feminine</option>
+                                        <option>no information</option>
+                                        <option>male</option>
+                                        <option>female</option>
                                     </select>
                                 </div>
 

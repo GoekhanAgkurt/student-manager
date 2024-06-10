@@ -67,7 +67,7 @@ export default createGlobalStyle`
     border-collapse: collapse;
     font-size: 0.9em;
     width: 97%;
-    min-width: 400px;
+    min-width: 900px;
     margin: 10px auto;
     table-layout: fixed;
   }
@@ -229,4 +229,53 @@ export default createGlobalStyle`
     font-weight: bold;
     color: white;
   }
+
+
+
+
+  ///
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.modal-actions {
+    margin-top: 20px;
+}
+
+.modal-confirm, .modal-cancel {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-confirm {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.modal-cancel {
+    background-color: #f44336;
+    color: white;
+}
+
 `;

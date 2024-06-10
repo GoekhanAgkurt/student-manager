@@ -9,10 +9,8 @@ export default function StudentList({ students, onDeleteStudent, onEditStudent, 
                     <th style={{ width: "20%" }}>Secondname</th>
                     <th style={{ width: "45%" }}>ID</th>
                     <th style={{ width: "20%" }}>Birthday</th>
-                    <th style={{ width: "20%" }}>Group</th>
+                    <th style={{ width: "25%" }}>Group</th>
                     <th style={{ width: "15%" }}>sex</th>
-                    <th style={{ width: "40%" }}>E Mail</th>
-                    <th style={{ width: "30%" }}>Number</th>
                     <th style={{ width: "20%" }}>Action</th>
                 </tr>
             </thead>
