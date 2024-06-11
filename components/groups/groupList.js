@@ -1,8 +1,10 @@
 import GroupItem from "./groupItem";
+import DetailsGroup from "./groupDetails";
 
-export default function GroupList({ groups, onEditGroup, onDeleteGroup, teachers, students }) {
+export default function GroupList({ groups, onEditGroup, onDeleteGroup, teachers, students, groupStudents, selectedGroup, isGroupOpen, setIsGroupOpen, }) {
     return (
         <table>
+
             <thead>
                 <tr>
                     <th style={{ width: "17%" }}>Group Name</th>
@@ -29,6 +31,7 @@ export default function GroupList({ groups, onEditGroup, onDeleteGroup, teachers
                 ))}
             </tbody>
         </table>
+
 
     )
 }

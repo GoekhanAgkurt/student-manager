@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-export default function DetailsGroup({ group, onClose, onDeleteGroup, onEditGroup, groups, teachers, students, groupStudents }) {
+export default function DetailsGroup({ group, onClose, onDeleteGroup, onEditGroup, groups, teachers, groupStudents }) {
     const [isEdit, setIsEdit] = useState(false);
 
 
@@ -90,9 +90,9 @@ export default function DetailsGroup({ group, onClose, onDeleteGroup, onEditGrou
 
                         <div className="formBox">
                             <label id="student">Number of Student({groupStudents.length})</label>
-                            <p>{groupStudents.map((student) => (
+                            {groupStudents.map((student) => (
                                 <li key={student.id} id="student">{student.name}, {student.secondName}</li>
-                            ))}</p>
+                            ))}
 
                         </div>
                     </section>

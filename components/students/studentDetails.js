@@ -1,5 +1,4 @@
 import { useState } from "react"
-import Icon from "@/lib/icons";
 
 
 export default function StudentDetails({ student, onClose, onDeleteStudent, onEditStudent, groups }) {

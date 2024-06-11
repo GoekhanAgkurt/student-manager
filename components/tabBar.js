@@ -1,3 +1,5 @@
+import Icon from "@/lib/icons";
+
 
 export default function TabBar({ activeTab, setActiveTab, groups, students, teachers }) {
     return (
