@@ -278,4 +278,15 @@ export default createGlobalStyle`
     color: white;
 }
 
+.toastMessage {
+  padding: 5px 30px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+
+}
+
 `;

@@ -1,14 +1,13 @@
 import { useState } from "react"
 import StudentDetails from "./studentDetails";
 
-export default function StudentItem({ student, onDeleteStudent, onEditStudent, groups }) {
+export default function StudentItem({ student, onDeleteStudent, onEditStudent, groups, }) {
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [isDetailOpen, setDetailIsOpen] = useState(false);
 
     function onClose() {
-        setIsOpen(!isOpen)
+        setDetailIsOpen(!isDetailOpen)
     }
-
     return (
         <tr>
             <td> {student.name} </td>
@@ -17,10 +16,10 @@ export default function StudentItem({ student, onDeleteStudent, onEditStudent, g
             <td> {student.birthday}</td>
             <td> {student.group}</td>
             <td> {student.sex}</td>
-            <td><button className="detailsButton" onClick={() => setIsOpen(!isOpen)}>details</button></td>
+            <td><button className="detailsButton" onClick={() => setDetailIsOpen(!isDetailOpen)}>details</button></td>
 
             <td>
-                {isOpen && (
+                {isDetailOpen && (
                     <StudentDetails
                         student={student}
                         groups={groups}
